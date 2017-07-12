@@ -1,0 +1,13 @@
+.rating-container {
+  border: 3px dashed red;
+  position: relative;
+  display: inline-block;
+  height: 48px;
+  width: 260px; }
+  .rating-container img {
+    position: absolute; }
+
+.rating-1 {
+  z-index: 1; }
+
+/*# sourceMappingURL=styles.css.map */

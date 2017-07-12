@@ -1,0 +1,17 @@
+// 260 x 48
+.rating-container {
+  border: 3px dashed red;
+
+  position: relative;
+  display: inline-block;
+  height: 48px;
+  width: 260px;
+
+  img {
+    position: absolute;
+  }
+}
+
+.rating-1 {
+  z-index: 1;
+}
