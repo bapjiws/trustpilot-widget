@@ -1,4 +1,10 @@
 window.onload = function () {
+    // var stars = [{
+    //     domRef: document.querySelector('.rating-' + '1'),
+    //     left: ratingContainer.clientWidth / 5 * (1 - 1), // 0
+    //     right: ratingContainer.clientWidth / (5 * 1 - 1) // 51
+    // }];
+
     var oneStar = document.querySelector('.rating-1');
     var twoStars = document.querySelector('.rating-2');
     var threeStars = document.querySelector('.rating-3');
@@ -15,17 +21,23 @@ window.onload = function () {
     console.log('widths:', widths);
 
     ratingContainer.addEventListener('mousemove', function(event) {
-        if (event.offsetX > widths[0] && event.offsetX < widths[1]) { // second star
-            // oneStar.style.zIndex= 0;
+        if (event.offsetX < widths[0]) {
+            oneStar.style.zIndex= 1;
+            twoStars.style.zIndex= 0;
+        } else if (event.offsetX > widths[0] && event.offsetX < widths[1]) { // second star
+            oneStar.style.zIndex= 0;
             twoStars.style.zIndex= 1;
+            threeStars.style.zIndex= 0;
         } else if (event.offsetX > widths[1] && event.offsetX < widths[2]) {
-            // twoStars.style.zIndex= 0;
+            twoStars.style.zIndex= 0;
             threeStars.style.zIndex= 1;
+            fourStars.style.zIndex= 0;
         } else if (event.offsetX > widths[2] && event.offsetX < widths[3]) {
-            // threeStars.style.zIndex= 0;
+            threeStars.style.zIndex= 0;
             fourStars.style.zIndex= 1;
+            fiveStars.style.zIndex= 0;
         } else if (event.offsetX > widths[3] && event.offsetX < widths[4]) {
-            // fourStars.style.zIndex= 0;
+            fourStars.style.zIndex= 0;
             fiveStars.style.zIndex= 1;
         }
     });
