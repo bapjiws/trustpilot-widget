@@ -1,0 +1,13 @@
+{
+  "name": "trustpilot-widget",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/bapjiws/trustpilot-widget.git",
+  "author": "bapjiws <alex.boklin@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "install_deps": "sudo apt install ruby && sudo gem install sass",
+    "verify_installation": "gem -v && sass -v",
+    "sass_watch": "sass --watch styles.scss"
+  }
+}
