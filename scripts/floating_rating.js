@@ -1,15 +1,14 @@
 window.onload = function () {
     var ratingContainer = document.querySelector('.rating-container');
-    console.log('ratingContainer:', ratingContainer.clientWidth);
+    var ratingContainerWidth = ratingContainer.clientWidth;
+    console.log('ratingContainerWidth:', ratingContainerWidth);
 
-    var stars = [1, 2, 3, 4, 5].reduce(function (acc, curr) {
+    var stars = [1, 2, 3, 4, 5].reduce(function (acc, curr, _, array) {
         acc.push({
             rating: curr,
             domRef: document.querySelector('.rating-' + curr),
-            // left boundary included, right boundary excluded
-            // boundaries: [ratingContainer.clientWidth / 5 * (curr - 1), ratingContainer.clientWidth / 5 * curr - 1]
-            left: ratingContainer.clientWidth / 5 * (curr - 1), // left boundary included
-            right: ratingContainer.clientWidth / 5 * curr - 1 // right boundary excluded
+            left: ratingContainerWidth / array.length * (curr - 1), // left boundary included
+            right: curr ===  array.length ? ratingContainerWidth / array.length * curr: ratingContainerWidth / array.length * curr - 1 // right boundary excluded (except the very last interval)
         });
         return acc;
     }, []);
@@ -34,19 +33,24 @@ window.onload = function () {
         return -1;
     }
 
+    var currentStar, newStar = 0;
     ratingContainer.addEventListener('mousemove', function(event) {
-        var currentStar = findStarByMousePosX(event.offsetX, stars);
-        console.log('currentStar:', currentStar);
+        var newStar = findStarByMousePosX(event.offsetX, stars);
+        console.log('X, currentStar, newStar:', event.offsetX, currentStar, newStar);
 
-        stars.forEach(function (star) {
-            if (star.rating === (currentStar + 1)) {
-                // console.log('SELECTED STAR:', star);
-                star.domRef.style.zIndex = 1;
-            } else {
-                // console.log('UNSELECTED STAR:', star);
-                star.domRef.style.zIndex = 0;
-            }
-        });
+        if (newStar !== currentStar) {
+            currentStar = newStar;
+
+            stars.forEach(function (star) {
+                if (star.rating === (newStar + 1)) {
+                    // console.log('SELECTED STAR:', star);
+                    star.domRef.style.zIndex = 1;
+                } else {
+                    // console.log('UNSELECTED STAR:', star);
+                    star.domRef.style.zIndex = 0;
+                }
+            });
+        }
     });
 
     // var ans = findStarByMousePosX(15, stars);
