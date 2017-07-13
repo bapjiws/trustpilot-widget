@@ -1,5 +1,5 @@
 window.onload = function () {
-    var ratingContainer = document.querySelector('.rating-container');
+    var ratingContainer = document.querySelector("div[class='rating-container']");
     var ratingContainerWidth = ratingContainer.clientWidth;
     console.log('ratingContainerWidth:', ratingContainerWidth);
 
