@@ -6,6 +6,8 @@ window.onload = function () {
         acc.push({
             rating: curr,
             domRef: document.querySelector('.rating-' + curr),
+            // left boundary included, right boundary excluded
+            // boundaries: [ratingContainer.clientWidth / 5 * (curr - 1), ratingContainer.clientWidth / 5 * curr - 1]
             left: (ratingContainer.clientWidth / 5) * (curr - 1), // left boundary included
             right: (ratingContainer.clientWidth / 5) * curr - 1 // right boundary excluded
         });
