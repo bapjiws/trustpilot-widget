@@ -15,30 +15,58 @@ window.onload = function () {
     }, []);
     console.log('stars:', stars);
 
-    var calledAtOffsetX = 0;
+    function findStarByMousePosX(mousePosX, stars) {
+        var min = 0;
+        var max = stars.length - 1;
+        var guess;
+
+        while (min <= max) {
+            guess = Math.floor((min + max) / 2);
+
+            if (mousePosX >= stars[guess].left && mousePosX <= stars[guess].right) {
+                return guess;
+            } else if (mousePosX > stars[guess].right) {
+                min = guess + 1;
+            } else if (mousePosX < stars[guess].left) {
+                max = guess - 1;
+            }
+        }
+        return -1;
+    }
 
     ratingContainer.addEventListener('mousemove', function(event) {
-        for (idx in stars) {
-            // console.log('star:', key);
-            // TODO: use a more efficient way of establishing the right interval -- e.g., binary search
-            if (event.offsetX > stars[idx].left && event.offsetX < stars[idx].right) {
-                // console.log(calledAtOffsetX, stars[idx].left, stars[idx].right);
+        var currentStar = findStarByMousePosX(event.offsetX, stars);
+        console.log('currentStar:', currentStar);
 
-                if (calledAtOffsetX <= stars[idx].left || calledAtOffsetX > stars[idx].right) {
-                    calledAtOffsetX = event.offsetX;
-
-                    console.log('STAR:', idx);
-                    stars.forEach(function (star) {
-                        if (star.rating === (+idx + 1)) {
-                            // console.log('SELECTED STAR:', star);
-                            star.domRef.style.zIndex = 1;
-                        } else {
-                            // console.log('UNSELECTED STAR:', star);
-                            star.domRef.style.zIndex = 0;
-                        }
-                    });
-                    break;
-                }
-        }}
+        stars.forEach(function (star) {
+            if (star.rating === (currentStar + 1)) {
+                // console.log('SELECTED STAR:', star);
+                star.domRef.style.zIndex = 1;
+            } else {
+                // console.log('UNSELECTED STAR:', star);
+                star.domRef.style.zIndex = 0;
+            }
+        });
     });
+
+    // var ans = findStarByMousePosX(15, stars);
+    // console.log('ans:', ans);
+    //
+    // ans = findStarByMousePosX(51, stars);
+    // console.log('ans:', ans);
+    //
+    // ans = findStarByMousePosX(52, stars);
+    // console.log('ans:', ans);
+    //
+    // ans = findStarByMousePosX(65, stars);
+    // console.log('ans:', ans);
+    //
+    // ans = findStarByMousePosX(104, stars);
+    // console.log('ans:', ans);
+    //
+    // ans = findStarByMousePosX(160, stars);
+    // console.log('ans:', ans);
+    //
+    // ans = findStarByMousePosX(250, stars);
+    // console.log('ans:', ans);
 };
