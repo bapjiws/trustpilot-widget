@@ -33,44 +33,20 @@ window.onload = function () {
         return -1;
     }
 
-    var currentStar, newStar = 0;
+    var currentStar = 0;
     ratingContainer.addEventListener('mousemove', function(event) {
         var newStar = findStarByMousePosX(event.offsetX, stars);
-        console.log('X, currentStar, newStar:', event.offsetX, currentStar, newStar);
-
+        // console.log('currentStar, newStar:', currentStar, newStar);
         if (newStar !== currentStar) {
+            console.log('RESTACKING...');
             currentStar = newStar;
-
             stars.forEach(function (star) {
                 if (star.rating === (newStar + 1)) {
-                    // console.log('SELECTED STAR:', star);
                     star.domRef.style.zIndex = 1;
                 } else {
-                    // console.log('UNSELECTED STAR:', star);
                     star.domRef.style.zIndex = 0;
                 }
             });
         }
     });
-
-    // var ans = findStarByMousePosX(15, stars);
-    // console.log('ans:', ans);
-    //
-    // ans = findStarByMousePosX(51, stars);
-    // console.log('ans:', ans);
-    //
-    // ans = findStarByMousePosX(52, stars);
-    // console.log('ans:', ans);
-    //
-    // ans = findStarByMousePosX(65, stars);
-    // console.log('ans:', ans);
-    //
-    // ans = findStarByMousePosX(104, stars);
-    // console.log('ans:', ans);
-    //
-    // ans = findStarByMousePosX(160, stars);
-    // console.log('ans:', ans);
-    //
-    // ans = findStarByMousePosX(250, stars);
-    // console.log('ans:', ans);
 };
