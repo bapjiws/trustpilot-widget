@@ -35,12 +35,13 @@
       .rating-container {
         //width: 100%;
 
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        cursor: pointer;
+
+        //display: flex;
+        //justify-content: center;
+        //align-items: center;
 
         position: relative;
-        //display: inline-block;
         height: 24px; // 48px;
         width: 130px; // 260px;
 
