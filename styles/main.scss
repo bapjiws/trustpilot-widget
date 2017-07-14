@@ -6,16 +6,21 @@ $font-stack: Helvetica Neue,Arial,Helvetica,sans-serif;
 
 .widget-container {
   display: flex;
+  flex-wrap: wrap;
 
   .review-container {
+    height: 300px;
+    width: 100% / $containers-per-row;
     //border: 1px dashed red;
     opacity: 0;
     transition-property: opacity;
     transition-timing-function: linear;
     transition-duration: 1s;
 
-    width: 100% / $containers-per-row;
+
     .review-header {
+      height: 25%;
+
       display: flex;
       justify-content: space-around;
 
@@ -55,17 +60,27 @@ $font-stack: Helvetica Neue,Arial,Helvetica,sans-serif;
     }
 
     .review-title {
+      height: 25%;
+
       font-family: $font-stack;
       font-size: 16px;
       font-weight: 700;
       text-align: center;
-      margin: 10px;
+
+      box-sizing: border-box;
+      padding: 10px;
     }
 
     .review-body {
+      height: 50%;
+      overflow: auto;
+
+      box-sizing: border-box;
+      padding: 5px 15px;
+
       font-family: $font-stack;
       font-size: 14px;
-      text-align: center;
+      text-align: left;
     }
   }
 }

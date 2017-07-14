@@ -1,12 +1,15 @@
 .widget-container {
-  display: flex; }
+  display: flex;
+  flex-wrap: wrap; }
   .widget-container .review-container {
+    height: 300px;
+    width: 25%;
     opacity: 0;
     transition-property: opacity;
     transition-timing-function: linear;
-    transition-duration: 1s;
-    width: 25%; }
+    transition-duration: 1s; }
     .widget-container .review-container .review-header {
+      height: 25%;
       display: flex;
       justify-content: space-around; }
       .widget-container .review-container .review-header .review-portrait {
@@ -34,15 +37,21 @@
             .widget-container .review-container .review-header .review-rating .rating-container img.rating-1 {
               z-index: 1; }
     .widget-container .review-container .review-title {
+      height: 25%;
       font-family: Helvetica Neue, Arial, Helvetica, sans-serif;
       font-size: 16px;
       font-weight: 700;
       text-align: center;
-      margin: 10px; }
+      box-sizing: border-box;
+      padding: 10px; }
     .widget-container .review-container .review-body {
+      height: 50%;
+      overflow: auto;
+      box-sizing: border-box;
+      padding: 5px 15px;
       font-family: Helvetica Neue, Arial, Helvetica, sans-serif;
       font-size: 14px;
-      text-align: center; }
+      text-align: left; }
 
 * {
   border: 1px solid red; }
