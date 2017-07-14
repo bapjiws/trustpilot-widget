@@ -1,6 +1,9 @@
 // TODO: add resets
 
-.review-container {
+.widget-container {
+  display: flex;
+
+  .review-container {
   //border: 1px dashed red;
   opacity: 0;
   transition-property: opacity;
@@ -69,6 +72,8 @@
     //margin: 10px;
   }
 }
+}
+
 
 * {
   border: 1px solid red;
