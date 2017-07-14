@@ -1,6 +1,8 @@
 // TODO: add resets
 @import "mixins";
 
+$containers-per-row: 4;
+
 .widget-container {
   display: flex;
 
@@ -11,7 +13,7 @@
     transition-timing-function: linear;
     transition-duration: 1s;
 
-    width: 50%;
+    width: 100% / $containers-per-row;
     .review-header {
       display: flex;
       justify-content: space-around;

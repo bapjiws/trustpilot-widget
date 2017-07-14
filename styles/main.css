@@ -5,7 +5,7 @@
     transition-property: opacity;
     transition-timing-function: linear;
     transition-duration: 1s;
-    width: 50%; }
+    width: 25%; }
     .widget-container .review-container .review-header {
       display: flex;
       justify-content: space-around; }
