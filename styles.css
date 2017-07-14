@@ -1,7 +1,7 @@
 .review-container {
   opacity: 0;
   transition-property: opacity;
-  transition-timing-function: ease-in-out;
+  transition-timing-function: linear;
   transition-duration: 1s;
   width: 50%; }
   .review-container .review-header {
