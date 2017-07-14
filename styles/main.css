@@ -20,7 +20,8 @@
           width: 100%;
           display: flex;
           justify-content: center;
-          align-items: center; }
+          align-items: center;
+          font-family: Helvetica Neue, Arial, Helvetica, sans-serif; }
         .widget-container .review-container .review-header .review-rating .rating-container {
           cursor: pointer;
           position: relative;
@@ -33,10 +34,14 @@
             .widget-container .review-container .review-header .review-rating .rating-container img.rating-1 {
               z-index: 1; }
     .widget-container .review-container .review-title {
+      font-family: Helvetica Neue, Arial, Helvetica, sans-serif;
+      font-size: 16px;
+      font-weight: 700;
       text-align: center;
       margin: 10px; }
     .widget-container .review-container .review-body {
-      font-size: 13px;
+      font-family: Helvetica Neue, Arial, Helvetica, sans-serif;
+      font-size: 14px;
       text-align: center; }
 
 * {

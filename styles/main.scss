@@ -2,6 +2,7 @@
 @import "mixins";
 
 $containers-per-row: 4;
+$font-stack: Helvetica Neue,Arial,Helvetica,sans-serif;
 
 .widget-container {
   display: flex;
@@ -29,6 +30,7 @@ $containers-per-row: 4;
         .review-author {
           width: 100%;
           @include flexbox-with-centered-contents;
+          font-family: $font-stack;
         }
 
         .rating-container {
@@ -53,12 +55,16 @@ $containers-per-row: 4;
     }
 
     .review-title {
+      font-family: $font-stack;
+      font-size: 16px;
+      font-weight: 700;
       text-align: center;
       margin: 10px;
     }
 
     .review-body {
-      font-size: 13px;
+      font-family: $font-stack;
+      font-size: 14px;
       text-align: center;
     }
   }
