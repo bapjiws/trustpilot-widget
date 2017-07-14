@@ -2,6 +2,11 @@
 
 .review-container {
   //border: 1px dashed red;
+  opacity: 0;
+  transition-property: opacity;
+  transition-timing-function: ease-in-out;
+  transition-duration: 1s;
+
   width: 50%;
   .review-header {
     display: flex;
@@ -25,7 +30,7 @@
       }
 
       .rating-container {
-        width: 100%;
+        //width: 100%;
 
         display: flex;
         justify-content: center;
@@ -66,5 +71,5 @@
 }
 
 * {
-  //border: 1px solid red;
+  border: 1px solid red;
 }
