@@ -60,7 +60,7 @@ window.onload = function () {
                         });
                     }
                 });
-            }, 1000 * (index+1));
+            }, 500 * (index+1));
         })(i);
     }
 };
